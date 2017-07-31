@@ -1,6 +1,7 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
+
   def new
-    @user = User.new()
+    @user = User.new
   end
 
   def create
@@ -14,7 +15,16 @@ class UserController < ApplicationController
       end
   end
 
+  def show
+    render :edit
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:username,:email,:password)
   end
+
 end

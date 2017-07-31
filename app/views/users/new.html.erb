@@ -1,0 +1,28 @@
+<h1> Create A New User here </h1>
+
+<!--
+<form action='/user' method="post" accept-charset="UTF-8">
+  User Name: =<input type="text" name="user[user_name]">     <br>
+  Email:     =<input type="text" name="email">         <br>
+  Password:  =<input type="password" name="password">  <br>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="submit">
+</form>
+-->
+
+<!-- THIS IS NOT WORKING FOR SOME REASON....? -->
+<!--
+<%= form_tag('/user',method: 'post') do %>
+  User Name: <%= text_field_tag(:user) %>    <br><br>
+  Email:     <%= text_field_tag(:email) %>   <br><br>
+  Password:  <%= text_field_tag(:password) %><br><br>
+  <%= submit_tag 'Create User' %>
+<% end %>
+-->
+
+<%= form_for @user do |f| %>
+  Username: <%= f.text_field :username %><br />
+  Email:    <%= f.text_field :email %><br />
+  Password: <%= f.password_field :password %><br />
+  <%= f.submit %>
+<% end %>
